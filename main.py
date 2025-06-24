@@ -24,6 +24,7 @@ def insert_into_tree(root, value):
 def main():
     input_filename = 'unsorted_nums.txt'
     output_filename = 'sorted_nums.txt'
+
 '''
 if __name__ == '__main__':
     main()
