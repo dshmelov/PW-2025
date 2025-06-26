@@ -21,6 +21,18 @@ def insert_into_tree(root, value):
         root.right = insert_into_tree(root.right, value)
     return root
 
+def in_order_traversal():
+
+def binary_tree_sort(numbers):
+    if not numbers:
+        return []
+    root = None
+    for num in numbers:
+        root = insert_into_tree(root, num)
+    result = []
+    in_order_traversal(root, result)
+    return result
+
 def read_numbers_from_file(filename):
     with open(filename, 'r') as file:
         content = file.read().strip()
