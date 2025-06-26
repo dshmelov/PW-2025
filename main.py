@@ -1,11 +1,3 @@
-import os
-
-'''
-def main() -> None:
-    # ...
-    pass
-'''
-
 class TreeNode:
     def __init__(self, value):
         self.left = None
@@ -21,7 +13,11 @@ def insert_into_tree(root, value):
         root.right = insert_into_tree(root.right, value)
     return root
 
-def in_order_traversal():
+def in_order_traversal(root, result):
+    if root:
+        in_order_traversal(root.left, result)
+        result.append(root.value)
+        in_order_traversal(root.right, result)
 
 def binary_tree_sort(numbers):
     if not numbers:
