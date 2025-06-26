@@ -4,6 +4,7 @@ class TreeNode:
         self.right = None
         self.value = value
 
+
 def insert_into_tree(root, value):
     if root is None:
         return TreeNode(value)
@@ -13,11 +14,13 @@ def insert_into_tree(root, value):
         root.right = insert_into_tree(root.right, value)
     return root
 
+
 def in_order_traversal(root, result):
     if root:
         in_order_traversal(root.left, result)
         result.append(root.value)
         in_order_traversal(root.right, result)
+
 
 def binary_tree_sort(numbers):
     if not numbers:
@@ -28,6 +31,7 @@ def binary_tree_sort(numbers):
     result = []
     in_order_traversal(root, result)
     return result
+
 
 def read_numbers_from_file(filename):
     with open(filename, 'r') as file:
@@ -40,6 +44,11 @@ def read_numbers_from_file(filename):
             except ValueError:
                 print(f"Предупреждение: значение '{item}' пропущено (не является числом)")
         return numbers, content
+
+
+def write_numbers_to_file(filename, numbers):
+    with open(filename, 'w') as file:
+        file.write(' '.join(map(str, numbers)))
 
 
 def main():
@@ -59,5 +68,5 @@ def main():
     except Exception as e:
         print(f"\nНеожиданная ошибка: {e}")
 
-main()
 
+main()
