@@ -21,6 +21,19 @@ def insert_into_tree(root, value):
         root.right = insert_into_tree(root.right, value)
     return root
 
+def read_numbers_from_file(filename):
+    with open(filename, 'r') as file:
+        content = file.read().strip()
+        numbers = []
+        for item in content.split():
+            try:
+                num = int(item) if '.' not in item else float(item)
+                numbers.append(num)
+            except ValueError:
+                print(f"Предупреждение: значение '{item}' пропущено (не является числом)")
+        return numbers, content
+
+
 def main():
     input_filename = 'unsorted_nums.txt'
     output_filename = 'sorted_nums.txt'
