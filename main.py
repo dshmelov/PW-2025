@@ -24,9 +24,19 @@ def insert_into_tree(root, value):
 def main():
     input_filename = 'unsorted_nums.txt'
     output_filename = 'sorted_nums.txt'
+    try:
+        numbers, original_content = read_numbers_from_file(input_filename)
+        print(f"Исходная строка из файла: '{original_content}'")
 
-'''
-if __name__ == '__main__':
-    main()
-'''
+        sorted_numbers = binary_tree_sort(numbers)
+        print(f"\nРезультат сортировки: {sorted_numbers}")
+
+        write_numbers_to_file(output_filename, sorted_numbers)
+
+    except FileNotFoundError:
+        print(f"\nОшибка: Файл '{input_filename}' не найден.")
+    except Exception as e:
+        print(f"\nНеожиданная ошибка: {e}")
+
+main()
 
