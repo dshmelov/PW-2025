@@ -38,7 +38,7 @@ def read_numbers_from_file(filename):
         numbers = []
         for item in content.split():
             try:
-                num = int(item)  # Читаем только целые числа
+                num = int(item)
                 numbers.append(num)
             except ValueError:
                 print(f"Предупреждение: '{item}' пропущено (не целое число)")
@@ -49,7 +49,6 @@ def write_numbers_to_file(filename, numbers):
         file.write(' '.join(map(str, numbers)))
 
 def generate_random_numbers(count, min_val, max_val):
-    # Генерируем только целые числа
     return [random.randint(min_val, max_val) for _ in range(count)]
 
 def save_numbers_to_file(numbers, filetype="сгенерированных"):
@@ -61,6 +60,13 @@ def save_numbers_to_file(numbers, filetype="сгенерированных"):
             return filename
         except Exception as e:
             print(f"Ошибка: {e}. Попробуйте снова.")
+
+def show_menu():
+    print("\nМеню:")
+    print("1. Отсортировать данные из файла")
+    print("2. Сгенерировать и отсортировать числа")
+    print("3. Выход")
+    return input("Выберите действие (1-3): ").strip()
 
 def main():
     while True:
@@ -87,8 +93,8 @@ def main():
         elif choice == '2':
             try:
                 count = int(input("Количество элементов: "))
-                min_val = int(input("Минимальное значение (целое): "))  # Только целые
-                max_val = int(input("Максимальное значение (целое): "))  # Только целые
+                min_val = int(input("Минимальное значение (целое): "))
+                max_val = int(input("Максимальное значение (целое): "))
 
                 numbers = generate_random_numbers(count, min_val, max_val)
                 print(f"\nСгенерировано: {' '.join(map(str, numbers))}")
