@@ -78,10 +78,10 @@ def main():
                 numbers, original = read_numbers_from_file(input_file)
                 print(f"\nИсходные данные: {' '.join(map(str, numbers))}")
 
-                start = time.time()  # Измеряем только время сортировки
+                start = time.time()
                 sorted_nums = binary_tree_sort(numbers)
                 print(f"Отсортировано: {' '.join(map(str, sorted_nums))}")
-                print(f"Время сортировки: {time.time() - start:.6f} сек")  # Выводим время сортировки
+                print(f"Время сортировки: {time.time() - start:.6f} сек")
 
                 save_numbers_to_file(sorted_nums, "отсортированных")
 
@@ -101,10 +101,10 @@ def main():
 
                 input_file = save_numbers_to_file(numbers)
 
-                start = time.time()  # Измеряем только время сортировки
+                start = time.time()
                 sorted_nums = binary_tree_sort(numbers)
                 print(f"Отсортировано: {' '.join(map(str, sorted_nums))}")
-                print(f"Время сортировки: {time.time() - start:.6f} сек")  # Выводим время сортировки
+                print(f"Время сортировки: {time.time() - start:.6f} сек")
 
                 save_numbers_to_file(sorted_nums, "отсортированных")
 
